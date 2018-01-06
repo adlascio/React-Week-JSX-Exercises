@@ -69,7 +69,22 @@
       alert: "This man's marbles are long gone."
     }];
 
-    // const profiles = /* create profile divs for each person that match the HTML templates above. */
+    const profiles = profileData.map((profile) => {
+      return (
+        <div className="profiles">
+          <div className="profile">
+            {profile.alert && (<p className="alert">{profile.alert}</p>)}
+            <img src={profile.imgSrc}/>
+            <h4> {profile.name} </h4>
+            <ul>
+              {profile.skills.map((skill) => {
+                return (<li>{skill}</li>);
+              })}
+            </ul>
+          </div>
+        </div>);
+    });
+   ReactDOM.render(profiles, root);
 
     </script>
   </body>

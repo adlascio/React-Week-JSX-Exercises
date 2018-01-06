@@ -13,6 +13,9 @@
     #title {
       text-decoration: underline;
     }
+    p {
+      text-decoration: line-through;
+    }
     </style>
   </head>
   <body>
@@ -23,8 +26,8 @@
 
     ReactDOM.render(
       <div>
-        <h1>This is a title</h1>
-        <h2>This is a subtitle</h2>
+        <h1 id="title">This is a title</h1>
+        <h2 className="blue">This is a subtitle</h2>
         <p>This is some content</p>
       </div>,
       root

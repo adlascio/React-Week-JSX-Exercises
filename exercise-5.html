@@ -36,6 +36,54 @@
 
     const names = ['Joel', 'Don', 'Khurram', 'David', 'Karl', 'Rosy'];
 
+    const alertHello = () => {
+      alert('Hello!');
+    };
+
+    const buttonWithListener = (
+      <p><button onClick={alertHello}>
+        Click to Alert "Hello!"
+      </button></p>);
+
+    const onSubmit = (evt) => {
+      evt.preventDefault();
+      const form = evt.target;
+      const nameInput = form.elements.name;
+      const foodInput = form.elements.food;
+      alert(`Your name is ${nameInput.value} and you like to eat ${foodInput.value}.`);
+      nameInput.value = foodInput.value = '';
+    };
+
+    const form = (<form onSubmit={onSubmit}>
+      <p>
+        <label>Name </label>
+        <input name='name' type='text'/>
+      </p>
+      <p>
+        <label>Favorite Food </label>
+        <input name='food' type='text'/>
+      </p>
+      <p><button type='submit'>Click to alert</button></p>
+    </form>);
+
+    const listNames = names.map((name) => {
+      return (
+        <ul>
+          <li>{name} <button onClick={() => {alert(`Hello, ${name}!`)}}>Greet</button></li>
+        </ul>
+      )
+    })
+    
+    ReactDOM.render(
+      <div>
+        {buttonWithListener}
+        <hr/>
+        {form}
+        <hr/>
+        {listNames}
+      </div>
+      , root);
+
     </script>
   </body>
 </html>
